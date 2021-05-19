@@ -53,6 +53,11 @@ class Build:
             logStreamNames=[log_stream]
         )
         logs_content = ''.join([event['message'] for page in iter for event in page['events']])
+        
+        print("Printing log content")
+        print(log_content[:100])
+        print("Print done")
+        
 
         BUCKET.put_object(
             Key=self._get_logs_key(),
